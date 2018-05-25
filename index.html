@@ -11,28 +11,25 @@
 </head>
 <body>
   <div id="app">
-    
-  <app-header text="My Favorite Alligators"></app-header>
+    <app-header text="My Favorite Alligators"></app-header>
  
-  <div class="filters">
-    <label>
-      <input type="checkbox" name="icecream">
-      Only show alligators that like ice cream
-    </label>
-  </div>
-
-  <section class="profile-container">
-    <div v-for="gator in alligators" class="profile">
-      <h3>{{ gator.name }}</h3>
-      <img :src="gator.imgSource" :alt="gator.name">
-      <p>Hobbies include {{ gator.hobbies }}.</p>
+    <div class="filters">
+      <label>
+        <input v-on:change="filter()" type="checkbox" name="icecream">
+        Only show alligators that like ice cream
+      </label>
+      <button v-on:click="test()">CLICK ME!</button>
     </div>
 
-    
+    <section class="profile-container">
+      <div v-for="gator in alligators" class="profile">
+        <h3>{{ gator.name }}</h3>
+        <img :src="gator.imgSource" :alt="gator.name">
+        <p>Hobbies include {{ gator.hobbies }}.</p>
+      </div>
   </section>
   </div>
   
   <script src="index.js"></script>
-  <script src="about.js"></script>
 </body>
 </html>
